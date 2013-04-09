@@ -6,7 +6,7 @@ Hostname="logstash.zentrale.de"
 counter=1
 while [ $counter != 0 ]
 do
-  logger "Eintrag Nr. $counter"
+  logger "Eintrag Nr. $counter von $HOSTNAME"
   counter=`expr $counter + 1`
 done
 exit 0
