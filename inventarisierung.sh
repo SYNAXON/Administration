@@ -6,6 +6,7 @@
 # 3. Run DSLinux_x* on current Host
 # 4. Put XML File on FTP-Server
 # 5. Local cleanup
+# You have to run this script as root or with sudo
 
 # Variablen ############################################################### #
 FTP_HOST=""
