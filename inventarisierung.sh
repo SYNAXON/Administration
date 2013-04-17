@@ -12,6 +12,7 @@
 FTP_HOST=""
 FTP_USER=""
 FTP_PASS=""
+REMOTE_DIR="docusnap_xml_files"
 DS_FILE="DSLinux_x64"
 LOCAL_DIR="/tmp/docusnap"	# Example: /tmp/docusnap
 
@@ -37,6 +38,7 @@ ftp -n $FTP_HOST > /tmp/docusnap/ftp.worked 2> /tmp/docusnap/ftp.failed <<END_SC
 quote USER $FTP_USER
 quote PASS $FTP_PASS
 binary
+cd $REMOTE_DIR
 put $HOSTNAME.xml
 bye
 END_SCRIPT
