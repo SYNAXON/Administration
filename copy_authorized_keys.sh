@@ -7,7 +7,7 @@
 FTP_HOST=""
 FTP_USER=""
 FTP_PASS=""
-DS_FILE="authorized_keys"
+DS_FILE="authorized_user_keys"
 LOCAL_DIR="/home/$USER/.ssh"
 
 # Programmstart
