@@ -65,6 +65,7 @@ usage
      exit 1
 fi
 
+START_DIR=`pwd`
 mkdir -p $LOCAL_DIR
 cd $LOCAL_DIR
 
@@ -75,4 +76,6 @@ binary
 get $DS_FILE
 bye
 END_SCRIPT
+
+cd $START_DIR
 exit 0
