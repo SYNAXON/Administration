@@ -32,7 +32,7 @@ END_SCRIPT
 chmod 555 $DS_FILE
 touch $LOCAL_DIR/$HOSTNAME.xml
 chmod 766 $HOSTNAME.xml
-sudo $LOCAL_DIR/$DS_FILE >$LOCAL_DIR/$HOSTNAME.xml
+$LOCAL_DIR/$DS_FILE >$LOCAL_DIR/$HOSTNAME.xml
 
 ftp -n $FTP_HOST > /tmp/docusnap/ftp.worked 2> /tmp/docusnap/ftp.failed <<END_SCRIPT
 quote USER $FTP_USER
