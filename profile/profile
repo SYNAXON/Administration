@@ -1,0 +1,3 @@
+# Setup local path
+PATH=$PATH:~/usr/bin
+export PATH
