@@ -6,7 +6,7 @@ This repository contains out common LINUX enviroment files in an git style manor
 Installation
 ------------
 
-*Clone repository into your local directory
+* Clone repository into your local directory
 ```bash
 cd ~
 git clone git://github.com/SYNAXON/Administration.git dotfiles
