@@ -7,6 +7,7 @@ alias ll='ls -alhF --color=auto'
 alias l='ls -lF --color=auto'
 alias ls='ls -F'
 alias grep='grep --color=auto --exclude-dir=\.svn'
+alias p='ps aux | grep'
 
 # CLI Colors
 export CLICOLOR=1
