@@ -15,30 +15,30 @@ LOCAL_DIR="/home/$USER/.ssh"
 usage()
 {
 cat << EOF
-usage: $0 options
+    usage: $0 options
 
-This script download the authorized_user_keys file from a FTP-Server and
-copies the file to ~/.ssh of the current user.
+    This script download the authorized_user_keys file from a FTP-Server and
+    copies the file to ~/.ssh of the current user.
 
-The following variables have to be specified in the script.
-FTP_HOST
-FTP_USER
-FTP_PASS
+    The following variables have to be specified in the script.
+        FTP_HOST
+        FTP_USER
+        FTP_PASS
 
-You can specify them by editing the script or use the following options.
+    You can specify them by editing the script or use the following options.
 
-OPTIONS:
--h Show this message
--H ftp host name
--u ftp user name
--p password for the ftp user
+    OPTIONS:
+        -h Show this message
+        -H ftp host name
+        -u ftp user name
+        -p password for the ftp user
 EOF
 }
 
 # Programmstart
-while getopts .hH:u:p. OPTION
+while getopts .hH:u:p:. OPTION
 do
-case $OPTION in
+    case $OPTION in
          h)
              usage
              exit 1
@@ -59,10 +59,9 @@ case $OPTION in
      esac
 done
 
-if [[ -z $FTP_HOST ]] || [[ -z $FTP_USER ]] || [[ -z $FTP_PASS ]]
-then
-usage
-     exit 1
+if [[ -z $FTP_HOST ]] || [[ -z $FTP_USER ]] || [[ -z $FTP_PASS ]]; then
+    usage
+    exit 1
 fi
 
 START_DIR=`pwd`
