@@ -51,25 +51,26 @@ do
 	esac
 done
 
-if [[ -z $CTIME]]; then
+if [[ -z $CTIME]] [[ -z $DTIME]] [[ -z $DIR]]; then
 	usage
 	exit 1
 fi
 
 # Check that the file isn't still open and work with it
-for file in $(find $DIR -ctime +$CTIME -name '*.log')
-do
-	lsof | grep $file
-	if [$? -eq 1 ]
-	then
-		gzip $file
-	fi
-done
 for file in $(find $DIR -ctime +$DTIME -name '*.log')
 do
 	lsof | grep $file
 	if [$? -eq 1 ]
 	then
 		rm $file
+	fi
+done
+
+for file in $(find $DIR -ctime +$CTIME -name '*.log')
+do
+	lsof | grep $file
+	if [$? -eq 1 ]
+	then
+		gzip $file
 	fi
 done
