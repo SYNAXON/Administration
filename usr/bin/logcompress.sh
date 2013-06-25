@@ -2,6 +2,9 @@
 # Scriptname: logcompress.sh
 # This script enables you to compress logfiles rotated with cronolog
 
+# Sucht leere Verzeichnisse und loescht diese rekursiv
+# find . -mindepth 1 -type d -empty -depth -print | xargs rmdir
+
 # Variables ###################################################### #
 CTIME=""
 DTIME=""
@@ -27,7 +30,7 @@ cat << EOF
 EOF
 }
 
-# Program ####################################################### #
+# Program ######################################################## #
 while getopts .hc:d:D. OPTION
 do
 	case $OPTION in

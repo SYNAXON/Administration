@@ -26,7 +26,7 @@ EOF
 }
 
 # Program ######################################################## #
-while getopts .ht:c:d. OPTION
+while getopts .ht:c:d:. OPTION
 do
 	case $OPTION in
 		h)
@@ -40,7 +40,7 @@ do
 			CTIME=$OPTARG
 			;;
 		d)
-			DIR=${OPTARG}
+			DIR="${OPTARG}"
 			;;
 		?)
 			usage
