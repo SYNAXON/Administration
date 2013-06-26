@@ -19,9 +19,9 @@ cat << EOF
 
     OPTIONS:
 		-h Show this message
-		-t <type> Specifies the filetype to search for.
-		-c n File's  status  was  last changed n*24 hours ago.
-		-d <path> Path to search for the specified file types.
+		-t <type> Specifies the filetype to search for. Example "csv", "gz" or "bz2".
+		-c n File's  status  was  last changed n*24 hours ago. n is the count of days.
+		-d <path> Path to search for the specified file types. Example "/tmp".
 EOF
 }
 
@@ -34,10 +34,10 @@ do
 			exit 1
 			;;
 		t)
-			FTYPE=$OPTARG
+			FTYPE="${OPTARG}"
 			;;
 		c)
-			CTIME=$OPTARG
+			CTIME="${OPTARG}"
 			;;
 		d)
 			DIR="${OPTARG}"
@@ -55,7 +55,7 @@ if [[ -z $CTIME ]] || [[ -z $FTYPE ]] || [[ -z $DIR ]]; then
 fi
 
 # Check that the file isn't still open and work with it
-for file in $(find $DIR -ctime +$CTIME -name '*.$FTYPE')
+for file in $(find $DIR -ctime +$CTIME -name '*.CSV')
 do
 	lsof | grep $file
 	if [$? -eq 1 ]
