@@ -55,8 +55,9 @@ if [[ -z $CTIME ]] || [[ -z $FTYPE ]] || [[ -z $DIR ]]; then
 fi
 
 # Check that the file isn't still open and work with it
-for file in $(find $DIR -ctime +$CTIME -name '*.CSV')
+for file in $(find $DIR -ctime +"${CTIME}" -name *."${FTYPE}")
 do
+	echo $file
 	lsof | grep $file
 	if [$? -eq 1 ]
 	then
