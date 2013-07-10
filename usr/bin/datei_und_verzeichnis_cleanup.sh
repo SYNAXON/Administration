@@ -59,7 +59,7 @@ for file in $(find $DIR -ctime +"${CTIME}" -name *."${FTYPE}")
 do
 	echo $file
 	lsof | grep $file
-	if [$? -eq 1 ]
+	if [ $? -eq 1 ]
 	then
 		rm $file
 	fi
