@@ -57,8 +57,9 @@ fi
 # Check that the file isn't still open and work with it
 for file in $(find $DIR -ctime +"${CTIME}" -name *."${FTYPE}")
 do
-	echo $file
+# echo kann fuer Wartungszwecke aktiviert werden.
+#	echo $file
 	rm $file
 done
 
-find $DIR -mindepth 1 -depth -type d -empty -print | xargs rmdir
+find $DIR -depth -type d -print | xargs rmdir 2>/dev/null
