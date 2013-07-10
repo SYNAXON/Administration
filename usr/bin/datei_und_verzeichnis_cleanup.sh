@@ -58,11 +58,7 @@ fi
 for file in $(find $DIR -ctime +"${CTIME}" -name *."${FTYPE}")
 do
 	echo $file
-	lsof | grep $file
-	if [ $? -eq 1 ]
-	then
-		rm $file
-	fi
+	rm $file
 done
 
 find $DIR -mindepth 1 -depth -type d -empty -print | xargs rmdir
