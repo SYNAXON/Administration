@@ -31,7 +31,7 @@ EOF
 }
 
 # Program ######################################################## #
-while getopts .hc:d:D. OPTION
+while getopts .hc:d:D:. OPTION
 do
 	case $OPTION in
 		h)
@@ -39,13 +39,13 @@ do
 			exit 1
 			;;
 		c)
-			CTIME=$OPTARG
+			CTIME="${OPTARG}"
 			;;
 		d)
-			DTIME=$OPTARG
+			DTIME="${OPTARG}"
 			;;
 		D)
-			DIR=$OPTARG
+			DIR="${OPTARG}"
 			;;
 		?)
 			usage
@@ -54,7 +54,7 @@ do
 	esac
 done
 
-if [[ -z $CTIME]] [[ -z $DTIME]] [[ -z $DIR]]; then
+if [[ -z $CTIME ]] || [[ -z $DTIME ]] || [[ -z $DIR ]]; then
 	usage
 	exit 1
 fi
@@ -63,7 +63,7 @@ fi
 for file in $(find $DIR -ctime +$DTIME -name '*.log')
 do
 	lsof | grep $file
-	if [$? -eq 1 ]
+	if [ $? -eq 1 ]
 	then
 		rm $file
 	fi
@@ -72,7 +72,7 @@ done
 for file in $(find $DIR -ctime +$CTIME -name '*.log')
 do
 	lsof | grep $file
-	if [$? -eq 1 ]
+	if [ $? -eq 1 ]
 	then
 		gzip $file
 	fi
