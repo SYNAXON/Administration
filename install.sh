@@ -33,14 +33,11 @@ fi
 echo "Create local bin directory"
 ln -s $current/usr ~/usr
 
-for dir in $dirToLink; do
-	cd $current/$dir
-	for file in *; do
-        echo "Moving .$file from ~ to $olddir"
-    	mv ~/.$file $olddir 
-    	echo "Creating symlink to .$file in home directory."
-    	ln -s $current/$dir/$file ~/.$file
-	done
+for file in $dirToLink; do
+    echo "Moving .$file from ~ to $olddir"
+    mv ~/.$file $olddir 
+    echo "Creating symlink to .$file in home directory."
+    ln -s $current/$dirToLink/$file ~/.$file
 done
 
 cd $start
