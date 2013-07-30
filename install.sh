@@ -10,7 +10,7 @@ dirToLink="profile"
 
 ######### create backup dir        ########
 if [ ! -d $olddir ]; then
-	mkdir -p $olddir
+        mkdir -p $olddir
 fi
 
 ######## backup existing vim files ########
@@ -33,9 +33,11 @@ fi
 echo "Create local bin directory"
 ln -s $current/usr ~/usr
 
-for file in $dirToLink; do
+cd $dirToLink
+
+for file in *; do
     echo "Moving .$file from ~ to $olddir"
-    mv ~/.$file $olddir 
+    mv ~/.$file $olddir
     echo "Creating symlink to .$file in home directory."
     ln -s $current/$dirToLink/$file ~/.$file
 done
