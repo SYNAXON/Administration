@@ -64,6 +64,10 @@ if [[ -z $FTP_HOST ]] || [[ -z $FTP_USER ]] || [[ -z $FTP_PASS ]]; then
     exit 1
 fi
 
+if [[ $USER == 'root' ]]; then
+	LOCAL_DIR="/root/.ssh"
+fi
+
 START_DIR=`pwd`
 mkdir -p $LOCAL_DIR
 cd $LOCAL_DIR
