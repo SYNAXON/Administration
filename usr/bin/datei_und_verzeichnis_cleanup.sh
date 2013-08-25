@@ -54,7 +54,6 @@ if [[ -z $CTIME ]] || [[ -z $FTYPE ]] || [[ -z $DIR ]]; then
 	exit 1
 fi
 
-# Check that the file isn't still open and work with it
 for file in $(find $DIR -ctime +"${CTIME}" -name *."${FTYPE}")
 do
 # echo kann fuer Wartungszwecke aktiviert werden.
