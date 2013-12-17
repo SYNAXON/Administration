@@ -9,7 +9,7 @@ FTP_USER=""
 FTP_PASS=""
 DS_FILE="authorized_user_keys"
 USER=`whoami`
-LOCAL_DIR="/home/$USER/.ssh"
+LOCAL_DIR=$HOME/.ssh
 
 # Functions ############################################################### #
 
